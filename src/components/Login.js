@@ -9,13 +9,16 @@ const Login = () => {
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const response = await fetch('http://localhost:5000/api/auth/login', {
-            method: 'POST', 
+        const response = await fetch(
+          "https://mcs-backend-intern.onrender.com/api/auth/login",
+          {
+            method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(credentials),
-          });
+          }
+        );
           const json = await response.json();
           console.log(json);
           if (json.success) {

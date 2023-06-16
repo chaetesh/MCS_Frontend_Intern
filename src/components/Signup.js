@@ -26,13 +26,16 @@ const Signup = () => {
     }
 
     if(credentials.password === credentials.cpassword){
-      const response = await fetch('http://localhost:5000/api/auth/createuser', {
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(credentials),
-      });
+      const response = await fetch(
+        "https://mcs-backend-intern.onrender.com/api/auth/createuser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentials),
+        }
+      );
       const json = await response.json();
       console.log(json);
       if(json.success === true){
